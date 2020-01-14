@@ -14,7 +14,8 @@ body,
 }
 
 body {
-  background: rgb(255, 255, 255) url("./assets/img/fundo.jpg") no-repeat;
+  /* background: rgb(255, 255, 255) url("./assets/img/fundo.jpg") no-repeat; */
+  background: #111 !important;
   background-size: cover;
   -webkit-font-smoothing: antialiased !important;
 }
@@ -29,7 +30,7 @@ button {
 .container {
   margin: 80px auto;
   max-width: 900px auto;
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

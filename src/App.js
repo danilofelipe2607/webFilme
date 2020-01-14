@@ -1,11 +1,11 @@
 import React from "react";
-import Dashboard from "./views/Dashboard";
+import PageFilme from "./components/FilmesDefault/index";
 import "./App.css";
 function App() {
   return (
     <div className="container">
       {/* <img src={logo} alt="AirCnC" /> */}
-      <Dashboard />;
+      <PageFilme/>
     </div>
   );
 }

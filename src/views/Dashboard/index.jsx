@@ -1,26 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../css/dashboard.css";
 import { dashboard } from "../../mocks/dashboard";
-import { Button } from "reactstrap";
 import Layout from "../../layout/layout";
+import MenuDashboard from "../../components/dashboard/menu";
 
 export default function Dashboard() {
   return (
     <>
       <Layout>
-        <div>
-          <Button className="btn-dashboard ">Ultimos Adicionados</Button>
-          <Button className="btn-dashboard ">Filmes</Button>
-          <Button className="btn-dashboard ">Séries</Button>
-          <Button className="btn-dashboard ">Outros</Button>
-          <Button className="btn-dashboard ">primary</Button>
-        </div>
+        <MenuDashboard />
         <div className="fundo">
-          <input
-            type="search"
-            placeholder="Faça a busca pelo seu filme aqui!"
-          />
-          <header style={{ color: "white" }}>Ultimos filmes adicionados</header>
+          <header style={{ color: "white" }}>Ultimos Lançamentos </header>
           <ul id="menu">
             {dashboard.map(item => (
               <li
@@ -32,7 +22,7 @@ export default function Dashboard() {
               </li>
             ))}
           </ul>
-        </div>{" "}
+        </div>
       </Layout>
     </>
   );

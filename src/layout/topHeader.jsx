@@ -18,8 +18,29 @@ export default function TopHeader() {
         </button>{" "}
         <Avatar
           src={loginIcon}
-          style={{ float: "right", marginRight: "5px", margintop: "5px" }}
+          style={{
+            float: "right",
+            marginRight: "5px",
+            margintop: "5px",
+            height: "25px",
+            width: "30px",
+            marginTop: "3px",
+            marginBottom: "3px"
+          }}
         />{" "}
+      </div>
+
+      <div className="header-search">
+        <input
+          className="header-search-input"
+          type="txt"
+          name="s"
+          maxlength="40"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Faça uma busca por filmes e séries..."
+          required=""
+        />
       </div>
     </>
   );
