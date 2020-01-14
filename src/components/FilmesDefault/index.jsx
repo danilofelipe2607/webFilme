@@ -51,6 +51,49 @@ export default function PageFilme() {
           </div>
           <div className="post_right">tesddte</div>
         </div>
+
+        <div className="div-box-filme">
+          <div className="row">RECOMENDADOS PARA VOCÊ</div>
+          <div className="row">
+            {" "}
+            <img
+              src={um}
+              style={{
+                width: "150px",
+                height: "180px",
+                display: "block",
+                marginBottom: "5px"
+              }}
+            />
+            <img
+              src={um}
+              style={{
+                width: "150px",
+                height: "180px",
+                display: "block",
+                marginBottom: "5px"
+              }}
+            />
+            <img
+              src={um}
+              style={{
+                width: "150px",
+                height: "180px",
+                display: "block",
+                marginBottom: "5px"
+              }}
+            />
+            <img
+              src={um}
+              style={{
+                width: "150px",
+                height: "180px",
+                display: "block",
+                marginBottom: "5px"
+              }}
+            />
+          </div>
+        </div>
       </Layout>
     </>
   );
