@@ -12,10 +12,10 @@ export default function Dashboard() {
         <div className="fundo">
           <header style={{ color: "white" }}>Ultimos Lançamentos </header>
           <ul id="menu">
-            {dashboard.map(item => (
+            {dashboard.map((item, index) => (
               <li
                 id="dashboard-li"
-                key={item._id}
+                key={index}
                 style={{ background: `url(${item.url})` }}
               >
                 <span className="mn-c-red">{item.name}</span>

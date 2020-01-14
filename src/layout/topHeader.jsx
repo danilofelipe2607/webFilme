@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import loginIcon from "../assets/img/loginIcon.jpg";
-export default function TopHeader() {
-  function logar() {}
+import ModalLogin from "./modalLogin";
 
+export default function TopHeader() {
+  const [modal, setModal] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  function startLoading() {
+    setLoading(true);
+  }
+
+  function finishLoading() {
+    setLoading(false);
+  }
+  const toggle = () => setModal(!modal);
   return (
     <>
       <div className="navbar-topHeader">
@@ -27,21 +38,24 @@ export default function TopHeader() {
             marginTop: "3px",
             marginBottom: "3px"
           }}
-        />{" "}
+          onClick={toggle}
+        />
       </div>
 
       <div className="header-search">
         <input
           className="header-search-input"
           type="txt"
-          name="s"
-          maxlength="40"
-          autocomplete="off"
-          spellcheck="false"
           placeholder="Faça uma busca por filmes e séries..."
-          required=""
         />
       </div>
+      <ModalLogin
+        modal={modal}
+        toggle={toggle}
+        loading={loading}
+        startLoading={startLoading}
+        finishLoading={finishLoading}
+      />
     </>
   );
 }

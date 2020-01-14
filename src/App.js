@@ -1,20 +1,22 @@
 import React from "react";
-import PageFilme from "./components/FilmesDefault/index";
-import "./App.css";
+import { Provider } from "react-redux";
+import { createBrowserHistory } from "history";
+import store from "./store";
+import { BrowserRouter, Router } from "react-router-dom";
+import Routes from "./routes/index";
+
+const hist = createBrowserHistory();
+
 function App() {
   return (
-    <div className="container">
-      {/* <img src={logo} alt="AirCnC" /> */}
-      <PageFilme/>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Router history={hist}>
+          <Routes />
+        </Router>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
 export default App;
-
-// <div className="container">
-//   {/* <img src={logo} alt="AirCnC" /> */}
-//   <div className="content">
-//     <Dashboard />;
-//   </div>
-// </div>;
