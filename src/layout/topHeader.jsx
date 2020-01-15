@@ -7,13 +7,6 @@ export default function TopHeader() {
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  function startLoading() {
-    setLoading(true);
-  }
-
-  function finishLoading() {
-    setLoading(false);
-  }
   const toggle = () => setModal(!modal);
   return (
     <>
@@ -49,13 +42,7 @@ export default function TopHeader() {
           placeholder="Faça uma busca por filmes e séries..."
         />
       </div>
-      <ModalLogin
-        modal={modal}
-        toggle={toggle}
-        loading={loading}
-        startLoading={startLoading}
-        finishLoading={finishLoading}
-      />
+      <ModalLogin modal={modal} toggle={toggle} />
     </>
   );
 }

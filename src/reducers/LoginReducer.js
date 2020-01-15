@@ -1,23 +1,16 @@
-import * as types from '../utils/ActionTypes';
+import * as types from "../actionsType/index";
 
 const initialState = {
-  token: localStorage.getItem('token') || null,
-  email: null,
-  senha: null,
+  token: localStorage.getItem("token") || null
 };
 
 const LoginReducer = (state = initialState, action) => {
+  console.log("pau", action.payload);
   const { type, payload } = action;
   switch (type) {
-    case types.LOGIN_SET_TOKEN:
+    case types.LOGIN_SET_SUCESS:
       return { ...state, token: payload };
-    case types.LOGIN_SET_EMAIL:
-      return { ...state, email: payload };
-    case types.LOGIN_SET_SENHA:
-      return { ...state, senha: payload };
-    case types.LOGIN_SET_EMAIL_SENHA:
-      return { ...state, email: payload.email, senha: payload.senha };
-    case types.INITIAL_STATE:
+    case types.LOGIN_SET_INITIAL_STATE:
       return { ...state };
     default:
       return state;
