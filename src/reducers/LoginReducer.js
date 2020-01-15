@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const LoginReducer = (state = initialState, action) => {
-  console.log("pau", action.payload);
   const { type, payload } = action;
   switch (type) {
     case types.LOGIN_SET_SUCESS:

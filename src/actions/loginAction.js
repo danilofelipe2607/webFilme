@@ -7,19 +7,27 @@ const hashHistory = hash.hashHistory;
 
 export const realizarLoginAction = values => async dispatch => {
   try {
-    console.log("values", values);
-    // const { data } = await api.post("/sdds");
-    let token = ["23232323"];
-    dispatch({ type: a.LOGIN_SET_SUCESS, payload: token });
-    console.log("sdd");
-    localStorage.setItem("Authorization", token);
-    hashHistory.push("/admin");
-    Swal.fire({
-      icon: "success",
-      title: "Logado com sucesso!",
-      showConfirmButton: false,
-      timer: 750
-    });
+    const { email, password } = values;
+    console.log(email, password);
+    const { data } = await api.post(`/auth/${email}/${password}`);
+    console.log(data);
+    if (data.token) {
+      dispatch({ type: a.LOGIN_SET_SUCESS, payload: data.token });
+      localStorage.setItem("Authorization", data.token);
+      hashHistory.push("/admin");
+      Swal.fire({
+        icon: "success",
+        title: "Logado com sucesso!",
+        showConfirmButton: false,
+        timer: 750
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Usuário não encontrado!."
+      });
+    }
   } catch (error) {
     Swal.fire({
       icon: "error",

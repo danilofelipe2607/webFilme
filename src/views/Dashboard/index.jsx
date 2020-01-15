@@ -8,7 +8,7 @@ export default function Dashboard() {
   return (
     <>
       <Layout>
-        <MenuDashboard />
+        {" "}
         <div className="fundo">
           <header style={{ color: "white" }}>Ultimos Lançamentos </header>
           <ul id="menu">

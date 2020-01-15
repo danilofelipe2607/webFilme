@@ -3,6 +3,8 @@ import { Route, Switch, Redirect, HashRouter } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { isAuthenticated } from "../services/AuthService";
 import Layout from "../layout/layout";
+import LayoutAdmin from "../layout/admin/layoutAdmin";
+import AdminIndex from "../views/admin/index";
 import Dashboard from "../views/Dashboard/index";
 
 const loading = () => (
@@ -24,20 +26,9 @@ const PrivateRoutes = ({ token, component: Component, ...rest }) => {
   );
 };
 
-const PublicRoutes = ({ token, component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        isAuthenticated() ? (
-          <Redirect to={{ pathname: "/", state: { from: props.location } }} />
-        ) : (
-          <Component {...props} />
-        )
-      }
-    />
-  );
-};
+// const PublicRoutes = ({ component: Component, ...rest }) => {
+//   return <Route {...rest} render={props => <Component {...props} />} />;
+// };
 
 function Routes() {
   const token = "565665656565656";
@@ -46,14 +37,17 @@ function Routes() {
     <HashRouter>
       <React.Suspense fallback={loading()}>
         <Switch>
-          {/* <PrivateRoutes token={token} path="/" component={() => <Layout />} /> */}
-          {/* <PublicRoutes
+          <PrivateRoutes
             token={token}
-            path="/home"
-            component={() => <Layout />}
-          /> */}
+            path="/admin"
+            component={() => <LayoutAdmin />}
+          />
+
+          {/* <PublicRoutes path="/dashboard" component={() => <Layout />} />
+           */}
           <Redirect from="/" exact to="/dashboard" />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard" exact component={Dashboard} />
+          <Route path="/admin" component={AdminIndex} />
         </Switch>
       </React.Suspense>
     </HashRouter>

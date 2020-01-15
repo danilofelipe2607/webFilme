@@ -1,5 +1,9 @@
 import React from "react";
 
 export default function AdminIndex() {
-  return <h1>heloo world!</h1>;
+  return (
+    <div>
+      dssssssssssssssssssssssssssssssssss<button>ssssssssss</button>:
+    </div>
+  );
 }
